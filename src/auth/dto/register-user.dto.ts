@@ -6,3 +6,10 @@ export class RegisterUserDto {
   login: string;
   password: string;
 }
+
+export class RegisterUserResponse {
+  token: string;
+  login: string;
+  email: string;
+  telephone: number;
+}

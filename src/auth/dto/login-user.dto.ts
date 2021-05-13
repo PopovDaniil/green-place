@@ -4,6 +4,5 @@ export class LoginUserDto {
 }
 
 export class LoginUserResponse {
-  token?: string;
-  success: boolean;
+  token: string;
 }

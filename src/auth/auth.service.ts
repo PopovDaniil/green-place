@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { LoginUserDto } from './dto/login-user.dto';
@@ -9,22 +9,13 @@ import { User, UserDocument } from './schemas/user.schema';
 export class AuthService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
-  async create(registerUserDto: RegisterUserDto): Promise<UserDocument> {
-    try {
-      const newUser = new this.userModel(registerUserDto);
-      return await newUser.save();
-    } catch (e) {
-      if (e.code == 11000) {
-        throw new HttpException(
-          'Email, phone or login is already used',
-          HttpStatus.CONFLICT,
-        );
-      }
-    }
+  create(registerUserDto: RegisterUserDto): Promise<UserDocument> {
+    const newUser = new this.userModel(registerUserDto);
+    return newUser.save();
   }
 
-  async find(loginUserDto: LoginUserDto): Promise<UserDocument> {
-    return await this.userModel.findOne(loginUserDto);
+  find(loginUserDto: LoginUserDto): Promise<UserDocument> {
+    return this.userModel.findOne(loginUserDto).exec();
   }
 
   setToken(loginUserDto: LoginUserDto, token: string) {
