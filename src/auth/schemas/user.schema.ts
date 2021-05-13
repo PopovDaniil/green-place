@@ -12,13 +12,13 @@ export class User {
   @Prop({ required: true })
   age: number;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   email: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   telephone: number;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   login: string;
 
   @Prop({ required: true })
