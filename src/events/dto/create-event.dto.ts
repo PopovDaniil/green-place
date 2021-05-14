@@ -4,5 +4,6 @@ export class CreateEventDto {
   description: string;
   date: Date;
   party: ObjectId[];
-  location: string;
+  latitude: number;
+  longitude: number;
 }

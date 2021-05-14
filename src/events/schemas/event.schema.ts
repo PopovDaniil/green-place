@@ -17,8 +17,11 @@ export class EEvent {
   @Prop({ required: true, default: [] })
   party: ObjectId[];
 
-  @Prop()
-  location: string;
+  @Prop({ required: true })
+  latitude: number;
+
+  @Prop({ required: true })
+  longitude: number;
 }
 
 export const EventSchema = SchemaFactory.createForClass(EEvent);
