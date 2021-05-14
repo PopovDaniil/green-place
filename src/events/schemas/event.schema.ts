@@ -16,6 +16,9 @@ export class EEvent {
 
   @Prop({ required: true, default: [] })
   party: ObjectId[];
+
+  @Prop()
+  location: string;
 }
 
 export const EventSchema = SchemaFactory.createForClass(EEvent);
