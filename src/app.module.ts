@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { EventsModule } from './events/events.module';
+import { RecyclingPointsModule } from './recycling-points/recycling-points.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { EventsModule } from './events/events.module';
       'mongodb+srv://daniil:ctRuUvwtyC5h6xV@cluster0.fkncz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     ),
     EventsModule,
+    RecyclingPointsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
