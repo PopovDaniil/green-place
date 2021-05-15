@@ -31,7 +31,12 @@ export class EventsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: ObjectId) {
+  findById(@Param('id') id: ObjectId) {
+    return this.eventsService.findById(id);
+  }
+
+  @Get('party/:id')
+  findByParty(@Param('id') id: ObjectId) {
     return this.eventsService.findByUserId(id);
   }
 

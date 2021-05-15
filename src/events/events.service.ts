@@ -20,8 +20,12 @@ export class EventsService {
     return await this.eventModel.find();
   }
 
+  async findById(id: ObjectId): Promise<EEvent> {
+    return await this.eventModel.findById(id);
+  }
+
   async findByUserId(id: ObjectId): Promise<EEvent> {
-    return await this.eventModel.findOne({ party: [id] });
+    return await this.eventModel.findOne({ party: { $in: [id] } });
   }
 
   async update(id: string, updateEventDto: UpdateEventDto) {
