@@ -1,3 +1,4 @@
+import { BlogsModule } from './blogs/blogs.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
@@ -14,6 +15,7 @@ import { RecyclingPointsModule } from './recycling-points/recycling-points.modul
     ),
     EventsModule,
     RecyclingPointsModule,
+    BlogsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
