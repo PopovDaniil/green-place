@@ -22,11 +22,11 @@ export class BlogsController {
   }
 
   @Get()
-  find(@Query('topic') topic: string) {
+  find(@Query('topic') topic: string, @Query('limit') limit: number) {
     if (topic) {
-      return this.blogsService.findByTopic(topic);
+      return this.blogsService.findByTopic(topic, limit);
     } else {
-      return this.blogsService.findAll();
+      return this.blogsService.findAll(limit);
     }
   }
 

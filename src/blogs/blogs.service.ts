@@ -17,16 +17,16 @@ export class BlogsService {
     return newPoint.save();
   }
 
-  async findAll() {
-    return await this.pointModel.find();
+  async findAll(limit: number) {
+    return await this.pointModel.find().limit(+limit);
   }
 
   async findById(id: string) {
     return await this.pointModel.findById(id);
   }
 
-  async findByTopic(topic: string) {
-    return await this.pointModel.find({ topic });
+  async findByTopic(topic: string, limit: number) {
+    return await this.pointModel.find({ topic }).limit(+limit);
   }
 
   async update(id: string, updatePointDto: UpdatePostDto) {
